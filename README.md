@@ -4,7 +4,7 @@ Scripts I've written for data processing use and portfolio purposes. Some of the
 # Descriptions
 These are descriptions of each file in the cook book along with the required packages.
 
-**generateLine.py** *(pandas, geoPandas, numPy, Shapely)
+**generateLine.py** *(pandas, geoPandas, numPy, Shapely)*  
 Generates spatial trajectory lines from temporally sequential geospatial point data. 
 
 **rasterProcessing.py** *(GDAL, shapely, numpy)*  
