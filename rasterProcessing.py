@@ -1,5 +1,4 @@
 from osgeo import gdal
-from shapely import geometry
 import numpy as np
 
 src_path = '../wise_images/2015/test.jpeg'
@@ -43,13 +42,14 @@ def convertJP2toJPG(src, dst):
     # Create a copy of the in-memory raster using JPEG Driver
     driver.CreateCopy(dst, dst_ds, strict=0)
 
-    print("Conversion from JPEG2000 to JPEG Complete!")
+    #print("Conversion from JPEG2000 to JPEG Complete!")
 
 def resampleRaster(src, dst, multiplier):
     """Resamples raster according to multiplier"""
 
     src_ds = gdal.Open(src, gdal.GA_ReadOnly)
     resolution = src_ds.GetGeoTransform()[1]
+    print(resolution)
     src_projection = src_ds.GetProjection()
     newRes = resolution*multiplier
 
@@ -67,12 +67,15 @@ def generateBoundaryIndex(src):
     cols = gdalSrc.RasterXSize
     rows = gdalSrc.RasterYSize
 
+    #print(gdalSrc.GetGeoTransform())
+
     ulx = upx
     uly = upy
 
     lrx = upx + cols*xres + rows*xskew
     lry = upy + cols*yskew + rows*yres
 
-    boundaryList = [ulx, uly, lrx, lry]
-    
+    boundaryList = [ulx, uly, lrx, lry, cols, rows]
+    #print(boundaryList)
+
     return boundaryList
