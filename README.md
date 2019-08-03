@@ -7,6 +7,9 @@ These are descriptions of each file in the cook book along with the required pac
 **generateLine.py** *(pandas, geoPandas, numPy, Shapely)*  
 Generates spatial trajectory lines from temporally sequential geospatial point data. 
 
+**genJSON.py**  
+Generates COCO-JSON file format for input into Mask-RCNN Computer Vision Model from generalized JSON file.
+
 **rasterProcessing.py** *(GDAL, shapely, numpy)*  
 Converting JPEG2000 rasters into JPEG rasters using GDAL  
 Resampling raster according to multiplier  
